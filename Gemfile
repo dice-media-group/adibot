@@ -39,7 +39,8 @@ group :development, :test do
   gem "bullet"
   gem "bundler-audit", ">= 0.5.0", require: false
   gem "dotenv-rails"
-  gem "factory_girl_rails"
+  # gem "factory_girl_rails" deprecated
+  gem "factory_bot_rails"
   gem "pry-byebug"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.6"
@@ -64,3 +65,6 @@ gem 'high_voltage'
 gem 'bourbon', '~> 5.0.0.beta.8'
 gem 'neat', '~> 2.1'
 gem 'refills', group: [:development, :test]
+
+# app-specific gem
+gem 'poltergeist', '~> 1.16'
