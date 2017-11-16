@@ -1,23 +1,62 @@
+<div class="row columns">
 <%= simple_form_for(@site_account) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :site %>
-    <%= f.input :guest %>
-    <%= f.input :email %>
-    <%= f.input :password %>
-    <%= f.input :positive_keyword %>
-    <%= f.input :negative_keyword %>
-    <%= f.input :style_no %>
-    <%= f.input :size %>
-    <%= f.input :early %>
-    <%= f.input :link %>
-    <%= f.input :page_monitor %>
-    <%= f.input :notification_text_no %>
-    <%= f.input :notification_email %>
-  </div>
+    <!--  -->
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="medium-6 cell">
+          <%= f.association :merchant_site %>
+        </div>
+        <div class="medium-3 cell">
+            <%= f.input :guest %>
+        </div>
+      <div class="medium-3 cell">
+        <%= f.input :email %>
+        <%= f.input :password %>
+        
+      </div>
+            <div class="medium-3 cell">
+              <%= f.input :positive_keyword %>
+            </div>
+            <div class="medium-3 cell">
+              <%= f.input :negative_keyword %>
+            </div>
+            <div class="medium-3 cell">
+                  <%= f.input :style_no %>
+            </div>
+            <div class="medium-3 cell">
+                  <%= f.input :size %>
+            </div>
+
+            <div class="medium-3 cell">
+                  <%= f.input :early %>
+            </div>
+
+            <div class="medium-3 cell">
+                  <%= f.input :page_monitor %>
+            </div>
+
+            <div class="medium-3 cell">
+                  <%= f.input :notification_text_no %>
+            </div>
+            <div class="medium-3 cell">
+                  <%= f.input :notification_email %>
+            </div>
+            <div class="medium-3 cell">
+            </div>
+            <div class="medium-3 cell">
+            </div>
+
+      </div>
+    </div>
+        <!-- finish grid-container -->
+
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+  
+</div>

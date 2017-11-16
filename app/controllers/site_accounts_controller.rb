@@ -24,7 +24,7 @@ class SiteAccountsController < ApplicationController
     @site_account = SiteAccount.new(site_account_params)
 
     if @site_account.save
-      redirect_to @site_account, notice: 'Site account was successfully created.'
+      redirect_to site_accounts_url, notice: 'Site account was successfully created.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class SiteAccountsController < ApplicationController
   # PATCH/PUT /site_accounts/1
   def update
     if @site_account.update(site_account_params)
-      redirect_to @site_account, notice: 'Site account was successfully updated.'
+      redirect_to site_accounts_url, notice: 'Site account was successfully updated.'
     else
       render :edit
     end
@@ -53,6 +53,6 @@ class SiteAccountsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def site_account_params
-      params.require(:site_account).permit(:site, :guest, :email, :password, :positive_keyword, :negative_keyword, :style_no, :size, :early, :link, :page_monitor, :notification_text_no, :notification_email)
+      params.require(:site_account).permit(:merchant_site_id, :site, :guest, :email, :password, :positive_keyword, :negative_keyword, :style_no, :size, :early, :link, :page_monitor, :notification_text_no, :notification_email)
     end
 end

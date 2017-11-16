@@ -74,3 +74,6 @@ gem 'poltergeist', '~> 1.16' #full web stack headless browser
 gem 'rails_admin', '~> 1.2'
 gem 'erubis', '~> 2.7' # support rails_admin
 gem 'rails_admin_import', '~> 2.0' # easily import csv and excel
+
+# frontend
+gem 'foundation-rails', '~> 6.4', '>= 6.4.1.2'
