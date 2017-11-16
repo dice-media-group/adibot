@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nickname:</strong>
+  <%= @billing_profile.nickname %>
+</p>
+
+<%= link_to 'Edit', edit_billing_profile_path(@billing_profile) %> |
+<%= link_to 'Back', billing_profiles_path %>
