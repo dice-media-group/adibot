@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Site Accounts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Site</th>
+      <th>Guest</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Positive keyword</th>
+      <th>Negative keyword</th>
+      <th>Style no</th>
+      <th>Size</th>
+      <th>Early</th>
+      <th>Link</th>
+      <th>Page monitor</th>
+      <th>Notification text no</th>
+      <th>Notification email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @site_accounts.each do |site_account| %>
+      <tr>
+        <td><%= site_account.site %></td>
+        <td><%= site_account.guest %></td>
+        <td><%= site_account.email %></td>
+        <td><%= site_account.password %></td>
+        <td><%= site_account.positive_keyword %></td>
+        <td><%= site_account.negative_keyword %></td>
+        <td><%= site_account.style_no %></td>
+        <td><%= site_account.size %></td>
+        <td><%= site_account.early %></td>
+        <td><%= site_account.link %></td>
+        <td><%= site_account.page_monitor %></td>
+        <td><%= site_account.notification_text_no %></td>
+        <td><%= site_account.notification_email %></td>
+        <td><%= link_to 'Show', site_account %></td>
+        <td><%= link_to 'Edit', edit_site_account_path(site_account) %></td>
+        <td><%= link_to 'Destroy', site_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Site Account', new_site_account_path %>

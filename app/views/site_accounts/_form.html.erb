@@ -1,0 +1,23 @@
+<%= simple_form_for(@site_account) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :site %>
+    <%= f.input :guest %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :positive_keyword %>
+    <%= f.input :negative_keyword %>
+    <%= f.input :style_no %>
+    <%= f.input :size %>
+    <%= f.input :early %>
+    <%= f.input :link %>
+    <%= f.input :page_monitor %>
+    <%= f.input :notification_text_no %>
+    <%= f.input :notification_email %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @site_account.site %>
+</p>
+
+<p>
+  <strong>Guest:</strong>
+  <%= @site_account.guest %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @site_account.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @site_account.password %>
+</p>
+
+<p>
+  <strong>Positive keyword:</strong>
+  <%= @site_account.positive_keyword %>
+</p>
+
+<p>
+  <strong>Negative keyword:</strong>
+  <%= @site_account.negative_keyword %>
+</p>
+
+<p>
+  <strong>Style no:</strong>
+  <%= @site_account.style_no %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @site_account.size %>
+</p>
+
+<p>
+  <strong>Early:</strong>
+  <%= @site_account.early %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @site_account.link %>
+</p>
+
+<p>
+  <strong>Page monitor:</strong>
+  <%= @site_account.page_monitor %>
+</p>
+
+<p>
+  <strong>Notification text no:</strong>
+  <%= @site_account.notification_text_no %>
+</p>
+
+<p>
+  <strong>Notification email:</strong>
+  <%= @site_account.notification_email %>
+</p>
+
+<%= link_to 'Edit', edit_site_account_path(@site_account) %> |
+<%= link_to 'Back', site_accounts_path %>

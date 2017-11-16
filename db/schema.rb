@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114021505) do
+ActiveRecord::Schema.define(version: 20171116024455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,4 +30,32 @@ ActiveRecord::Schema.define(version: 20171114021505) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
+  create_table "merchant_sites", force: :cascade do |t|
+    t.string "name"
+    t.string "base_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "site_accounts", force: :cascade do |t|
+    t.string "site"
+    t.boolean "guest"
+    t.text "email"
+    t.string "password"
+    t.string "positive_keyword"
+    t.string "negative_keyword"
+    t.string "style_no"
+    t.string "size"
+    t.string "early"
+    t.string "link"
+    t.string "page_monitor"
+    t.string "notification_text_no"
+    t.text "notification_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "merchant_site_id"
+    t.index ["merchant_site_id"], name: "index_site_accounts_on_merchant_site_id"
+  end
+
+  add_foreign_key "site_accounts", "merchant_sites"
 end

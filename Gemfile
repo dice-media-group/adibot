@@ -66,5 +66,11 @@ gem 'bourbon', '~> 5.0.0.beta.8'
 gem 'neat', '~> 2.1'
 gem 'refills', group: [:development, :test]
 
-# app-specific gem
-gem 'poltergeist', '~> 1.16'
+## app-specific gems
+# connect with remote sites and proxies
+gem 'poltergeist', '~> 1.16' #full web stack headless browser
+
+# backend
+gem 'rails_admin', '~> 1.2'
+gem 'erubis', '~> 2.7' # support rails_admin
+gem 'rails_admin_import', '~> 2.0' # easily import csv and excel
