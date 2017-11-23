@@ -13,9 +13,7 @@
   <tbody>
     <% @billing_profiles.each do |billing_profile| %>
       <tr>
-        <td><%= billing_profile.nickname %></td>
-        <td><%= link_to 'Show', billing_profile %></td>
-        <td><%= link_to 'Edit', edit_billing_profile_path(billing_profile) %></td>
+        <td><%= link_to billing_profile.nickname, edit_billing_profile_path(billing_profile) %></td>
         <td><%= link_to 'Destroy', billing_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -24,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Billing Profile', new_billing_profile_path %>
+<%= link_to 'Add Billing Profile', new_billing_profile_path %>
