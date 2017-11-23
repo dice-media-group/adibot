@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :billing_profiles
   resources :card_infos
   resources :shipping_addresses

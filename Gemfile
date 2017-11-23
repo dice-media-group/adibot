@@ -77,3 +77,7 @@ gem 'rails_admin_import', '~> 2.0' # easily import csv and excel
 
 # frontend
 gem 'foundation-rails', '~> 6.4', '>= 6.4.1.2'
+
+# authentication
+gem 'devise', '~> 4.3'
+gem 'devise-foundation-views', '~> 0.1.1'

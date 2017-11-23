@@ -1,0 +1,20 @@
+<h2>Sign up</h2>
+<div class="log-in-form">
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true, placeholder: "somebody@example.com" %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "Password" %>
+    <%= f.input :password_confirmation, required: true, placeholder: "Password Confirmation" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up", class: "button expanded" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+	
+</div>
+

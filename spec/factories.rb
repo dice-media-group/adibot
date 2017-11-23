@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :user do
+    
+  end
   factory :billing_profile do
     nickname "MyString"
   end
