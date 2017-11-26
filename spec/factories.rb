@@ -1,4 +1,20 @@
 FactoryBot.define do
+  factory :cart_attempt do
+    body "MyString"
+  end
+  factory :task do
+    site_account nil
+    status "MyString"
+    shoe_size "MyString"
+    billing_profile nil
+    positive_key_word "MyString"
+    negative_key_word "MyString"
+    style_no "MyString"
+    early_link "MyText"
+    page_monitor "MyString"
+    notification_text_no "MyString"
+    notification_email "MyString"
+  end
   factory :user do
     
   end

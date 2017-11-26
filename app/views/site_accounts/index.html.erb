@@ -7,6 +7,7 @@
 <table>
   <thead>
     <tr>
+      <th>Nickname</th>
       <th>Merch Site</th>
       <th>Email</th>
       <th>Style no</th>
@@ -18,7 +19,8 @@
   <tbody>
     <% @site_accounts.each do |site_account| %>
       <tr>
-        <td><%= link_to site_account.merchant_site.name, edit_site_account_path(site_account) %></td>
+        <td><%= link_to site_account.nickname, edit_site_account_path(site_account) %></td>
+        <td><%= site_account.merchant_site.name %></td>
         <td><%= site_account.email %></td>
         <td><%= site_account.style_no %></td>
         <td><%= site_account.size %></td>

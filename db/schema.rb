@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123191856) do
+ActiveRecord::Schema.define(version: 20171125220301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,12 @@ ActiveRecord::Schema.define(version: 20171123191856) do
     t.datetime "updated_at", null: false
     t.bigint "billing_profile_id"
     t.index ["billing_profile_id"], name: "index_card_infos_on_billing_profile_id"
+  end
+
+  create_table "cart_attempts", force: :cascade do |t|
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -111,7 +117,26 @@ ActiveRecord::Schema.define(version: 20171123191856) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "merchant_site_id"
+    t.string "nickname"
     t.index ["merchant_site_id"], name: "index_site_accounts_on_merchant_site_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "site_account_id"
+    t.string "status"
+    t.string "shoe_size"
+    t.bigint "billing_profile_id"
+    t.string "positive_key_word"
+    t.string "negative_key_word"
+    t.string "style_no"
+    t.text "early_link"
+    t.string "page_monitor"
+    t.string "notification_text_no"
+    t.string "notification_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["billing_profile_id"], name: "index_tasks_on_billing_profile_id"
+    t.index ["site_account_id"], name: "index_tasks_on_site_account_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -135,4 +160,6 @@ ActiveRecord::Schema.define(version: 20171123191856) do
   add_foreign_key "card_infos", "billing_profiles"
   add_foreign_key "shipping_addresses", "billing_profiles"
   add_foreign_key "site_accounts", "merchant_sites"
+  add_foreign_key "tasks", "billing_profiles"
+  add_foreign_key "tasks", "site_accounts"
 end

@@ -1,0 +1,2 @@
+class CartAttempt < ApplicationRecord
+end

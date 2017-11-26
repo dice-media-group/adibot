@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tasks <%= link_to '(+)', new_task_path %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Site account</th>
+      <th>Status</th>
+      <th>Shoe size</th>
+      <th>Style #</th>
+      <th>Billing profile</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= link_to task.site_account.nickname, edit_task_path(task) %></td>
+        <td><%= task.status %></td>
+        <td><%= task.shoe_size %></td>
+        <td><%= task.style_no %></td>
+        <td><%= task.billing_profile.nickname if task.billing_profile %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

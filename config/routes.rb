@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :cart_attempts
+  resources :tasks
   devise_for :users
   resources :billing_profiles
   resources :card_infos
