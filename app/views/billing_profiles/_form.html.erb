@@ -1,11 +1,84 @@
 <%= simple_form_for(@billing_profile) do |f| %>
-  <%= f.error_notification %>
+  <%= render 'shared/errors', object: @billing_profile %>
+  <div class="row columns">
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname %>
+  </div>
+<div class="row">
+  <div class="medium-3 columns">
+    <p><strong>Basic Info:</strong></p>
 
-  <div class="form-inputs">
-    <%= f.input :nickname %>
+     <%= f.simple_fields_for :card_infos, CardInfo.new do |card_infos| %>
+
+      <div>
+        <%= card_infos.label :card_nickname %>
+        <%= card_infos.text_field :card_nickname %>
+      </div>
+    <% end %>
+  </div>
+  <div class="medium-3 columns">
+    <p><strong>Billing Address:</strong></p>
+
+    <%= f.simple_fields_for :billing_addresses, BillingAddress.new do |billing_addresses| %>
+
+      <div>
+        <%= billing_addresses.label :first_name %>
+        <%= billing_addresses.text_field :first_name %>
+        <%= billing_addresses.label :last_name %>
+        <%= billing_addresses.text_field :last_name %>
+        <%= billing_addresses.label :address_1 %>
+        <%= billing_addresses.text_field :address_1 %>
+        <%= billing_addresses.label :address_2 %>
+        <%= billing_addresses.text_field :city %>
+        <%= billing_addresses.label :city %>
+        <%= billing_addresses.text_field :state %>
+        <%= billing_addresses.label :zip_code %>
+        <%= billing_addresses.text_field :zip_code %>
+        <%= billing_addresses.label :zip_code %>
+        <%= billing_addresses.text_field :zip_code %>
+        <%= billing_addresses.label :house_nb %>
+        <%= billing_addresses.text_field :house_nb %>
+        <%= billing_addresses.label :phone %>
+        <%= billing_addresses.text_field :phone %>
+
+      </div>
+    <% end %>
+  </div>
+  <div class="medium-3 columns">
+    <p><strong>Shipping Address:</strong></p>
+
+    <%= f.simple_fields_for :shipping_addresses, ShippingAddress.new do |shipping_addresses| %>
+
+      <div>
+        <%= shipping_addresses.label :first_name %>
+        <%= shipping_addresses.text_field :first_name %>
+        <%= shipping_addresses.label :last_name %>
+        <%= shipping_addresses.text_field :last_name %>
+        <%= shipping_addresses.label :address_1 %>
+        <%= shipping_addresses.text_field :address_1 %>
+        <%= shipping_addresses.label :address_2 %>
+        <%= shipping_addresses.text_field :city %>
+        <%= shipping_addresses.label :city %>
+        <%= shipping_addresses.text_field :state %>
+        <%= shipping_addresses.label :zip_code %>
+        <%= shipping_addresses.text_field :zip_code %>
+        <%= shipping_addresses.label :zip_code %>
+        <%= shipping_addresses.text_field :zip_code %>
+        <%= shipping_addresses.label :house_nb %>
+        <%= shipping_addresses.text_field :house_nb %>
+        <%= shipping_addresses.label :phone %>
+        <%= shipping_addresses.text_field :phone %>
+
+      </div>
+    <% end %>
+  </div>
+  </div>
+  <div class="row columns">
+     <p>
+    	<%= f.submit 'Save Billing' %>
+  	</p>
+  	
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+
+  <% end -%>

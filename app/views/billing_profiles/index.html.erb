@@ -1,20 +1,41 @@
 <p id="notice"><%= notice %></p>
-
+<row class="columns"></row>
 <h1>Billing Profiles</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Nickname</th>
-      <th colspan="3"></th>
+      <th>Profile</th>
+      <th>Billing Type</th>
+      <th>Details</th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @billing_profiles.each do |billing_profile| %>
       <tr>
-        <td><%= link_to billing_profile.nickname, edit_billing_profile_path(billing_profile) %></td>
-        <td><%= link_to 'Destroy', billing_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to edit_billing_profile_path(billing_profile) do %>
+            <%= billing_profile.nickname %>
+          <% end %>
+
+        </td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+                <td>
+                    <%= link_to edit_billing_profile_path(billing_profile) do %>
+                      <strong><i class="large fa fa-pencil"></i>&nbsp;</strong>
+                    <% end %>
+                    &nbsp;&nbsp;
+                    <%= link_to billing_profile, method: :delete, data: { confirm: 'Are you sure?' } do %> 
+                        <i class="fa fa-trash-o" aria-hidden="true"></i><span class="bold">&nbsp;</span> 
+                     <% end %>
+
+                </td>
+
+        <td>
+        </td>
       </tr>
     <% end %>
   </tbody>

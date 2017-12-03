@@ -13,6 +13,8 @@ class BillingProfilesController < ApplicationController
   # GET /billing_profiles/new
   def new
     @billing_profile = BillingProfile.new
+    # @billing_profile.build_billing_address
+  
   end
 
   # GET /billing_profiles/1/edit
@@ -21,10 +23,10 @@ class BillingProfilesController < ApplicationController
 
   # POST /billing_profiles
   def create
-    @billing_profile = BillingProfile.new(billing_profile_params)
+    @billing_profile = BillingProfile.new(allowed_params)
 
     if @billing_profile.save
-      redirect_to @billing_profile, notice: 'Billing profile was successfully created.'
+      redirect_to billing_profiles_url, notice: 'Billing profile was successfully created.'
     else
       render :new
     end
@@ -32,8 +34,8 @@ class BillingProfilesController < ApplicationController
 
   # PATCH/PUT /billing_profiles/1
   def update
-    if @billing_profile.update(billing_profile_params)
-      redirect_to @billing_profile, notice: 'Billing profile was successfully updated.'
+    if @billing_profile.update(allowed_params)
+      redirect_to billing_profiles_url, notice: 'Billing profile was successfully updated.'
     else
       render :edit
     end
@@ -52,7 +54,7 @@ class BillingProfilesController < ApplicationController
     end
 
     # Only allow a trusted parameter "white list" through.
-    def billing_profile_params
-      params.require(:billing_profile).permit(:nickname)
+    def allowed_params
+      params.require(:billing_profile).permit(:nickname, card_infos_attributes: [:card_nickname], billing_addresses_attributes: [:id, :first_name, :last_name, :address_1, :city, :state, :zip_code, :house_nb, :phone], shipping_addresses_attributes: [:id, :first_name, :last_name, :address_1, :city, :state, :zip_code, :house_nb, :phone], card_infos_attributes: [:id, :card_nickname])
     end
 end
