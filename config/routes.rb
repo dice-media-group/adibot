@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :campaigns
   resources :cart_attempts
   resources :tasks
   devise_for :users

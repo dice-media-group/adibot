@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :campaign do
+    name "MyString"
+  end
   factory :cart_attempt do
     body "MyString"
   end
