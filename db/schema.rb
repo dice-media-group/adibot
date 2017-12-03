@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171202171746) do
+ActiveRecord::Schema.define(version: 20171203222024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 20171202171746) do
     t.string "exp_year"
     t.string "ccv"
     t.string "email"
-    t.string "birthday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "billing_profile_id"
+    t.date "birthdate"
     t.index ["billing_profile_id"], name: "index_card_infos_on_billing_profile_id"
   end
 

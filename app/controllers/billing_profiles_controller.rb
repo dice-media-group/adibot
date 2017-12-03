@@ -60,6 +60,9 @@ class BillingProfilesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def allowed_params
-      params.require(:billing_profile).permit(:nickname, card_infos_attributes: [:card_nickname], billing_addresses_attributes: [:id, :first_name, :last_name, :address_1, :address_2, :city, :state, :zip_code, :house_nb, :phone], shipping_addresses_attributes: [:id, :first_name, :last_name, :address_1, :address_2, :city, :state, :zip_code, :house_nb, :phone], card_infos_attributes: [:id, :card_nickname])
+      params.require(:billing_profile).permit(:nickname, 
+        card_infos_attributes: [:card_nickname, :email, :card_type, :name_on_card, :card_number, :ccv, :exp_month, :exp_year, :birthdate], 
+        billing_addresses_attributes: [:id, :first_name, :last_name, :address_1, :address_2, :city, :state, :zip_code, :house_nb, :phone], 
+        shipping_addresses_attributes: [:id, :first_name, :last_name, :address_1, :address_2, :city, :state, :zip_code, :house_nb, :phone])
     end
 end

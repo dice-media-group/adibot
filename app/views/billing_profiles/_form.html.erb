@@ -18,6 +18,23 @@
       <div>
         <%= card_infos.label :card_nickname %>
         <%= card_infos.text_field :card_nickname %>
+        <%= card_infos.label :email %>
+        <%= card_infos.text_field :email %>
+        <%= card_infos.label :card_type %>
+        <%= card_infos.text_field :card_type %>
+        <%= card_infos.label :name_on_card %>
+        <%= card_infos.text_field :name_on_card %>
+        <%= card_infos.label :card_number %>
+        <%= card_infos.text_field :card_number %>
+        <%= card_infos.label :ccv, "Security Code on Back" %>
+        <%= card_infos.text_field :ccv %>
+        <%= card_infos.label :exp_month, "Expiration Month" %>
+        <%= card_infos.text_field :exp_month %>
+        <%= card_infos.label :exp_year, "Expiration Year" %>
+        <%= card_infos.text_field :exp_year %>
+        <%= card_infos.label :birthdate, "Date of Birth" %>
+        <%= card_infos.input :birthdate %>
+
       </div>
     <% end %>
   </div>

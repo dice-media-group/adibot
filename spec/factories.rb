@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :timekeeper do
+    best_time "2017-12-03 14:54:16"
+    best_date "2017-12-03"
+  end
   factory :campaign do
     name "MyString"
   end
