@@ -1,22 +1,48 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Campaigns</h1>
+<div class="row columns">
+  <h3>Campaigns <%= link_to '(+)', new_campaign_path %></h3> 
+</div>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th>Campaign</th>
+      <th>Sites</th>
+      <th>Sizes</th>
+      <th>Tasks</th>
+      <th>To Cop</th>
+      <th>Results</th>
+
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @campaigns.each do |campaign| %>
       <tr>
-        <td><%= campaign.name %></td>
-        <td><%= link_to 'Show', campaign %></td>
-        <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
-        <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to campaign.name, campaign %></td>
+        <td>Sites go here</td>
+        <td>Sizes go here</td>
+        <td>tasks go here</td>
+        <td>to cop goes here</td>
+        <td>results</td>
+        <td>
+          <%= link_to campaigns_path do %>
+            <strong><i class="large fa fa-book"></i>&nbsp;</strong>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_campaign_path(campaign) do %>
+            <strong><i class="large fa fa-pencil"></i>&nbsp;</strong>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to campaign, method: :delete, data: { confirm: 'Are you sure?' } do %> 
+              <i class="fa fa-trash-o" aria-hidden="true"></i><span class="bold">&nbsp;</span> 
+           <% end %>          
+        </td>
+
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +50,4 @@
 
 <br>
 
-<%= link_to 'New Campaign', new_campaign_path %>
+
