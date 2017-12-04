@@ -13,17 +13,13 @@ class BillingProfilesController < ApplicationController
   # GET /billing_profiles/new
   def new
     @billing_profile  = BillingProfile.new
-    @card_infos       = CardInfo.new
-    @billing_address  = BillingAddress.new
-    @shipping_address = ShippingAddress.new
+    @billing_profile.card_infos.new
+    @billing_profile.billing_addresses.new
+    @billing_profile.shipping_addresses.new
   end
 
   # GET /billing_profiles/1/edit
   def edit
-    @card_info        =  @billing_profile.card_infos.first
-    @billing_address  =  @billing_profile.billing_addresses.first
-    @shipping_address =  @billing_profile.shipping_addresses.first
-
   end
 
   # POST /billing_profiles
@@ -61,8 +57,8 @@ class BillingProfilesController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def allowed_params
       params.require(:billing_profile).permit(:nickname, 
-        card_infos_attributes: [:card_nickname, :email, :card_type, :name_on_card, :card_number, :ccv, :exp_month, :exp_year, :birthdate], 
-        billing_addresses_attributes: [:id, :first_name, :last_name, :address_1, :address_2, :city, :state, :zip_code, :house_nb, :phone], 
-        shipping_addresses_attributes: [:id, :first_name, :last_name, :address_1, :address_2, :city, :state, :zip_code, :house_nb, :phone])
+        card_infos_attributes: CardInfo.attribute_names.map(&:to_sym),
+        billing_addresses_attributes: BillingAddress.attribute_names.map(&:to_sym),
+        shipping_addresses_attributes: ShippingAddress.attribute_names.map(&:to_sym))
     end
 end

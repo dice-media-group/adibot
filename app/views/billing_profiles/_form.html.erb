@@ -1,99 +1,35 @@
 <%= simple_form_for(@billing_profile) do |f| %>
   <%= render 'shared/errors', object: @billing_profile %>
   <div class="row columns">
-  <%= link_to 'Cancel', billing_profiles_path, class: "button secondary"  %>       <%= f.submit 'Save Billing', class: "button" %>
+    <%= link_to 'Cancel', billing_profiles_path, class: "button secondary"  %>       <%= f.submit 'Save Billing', class: "button" %>
 
-</div>
+  </div>
 
   <div class="row columns">
     <%= f.label :nickname %>
     <%= f.text_field :nickname %>
   </div>
-<div class="row">
-  <div class="medium-4 columns fieldset">
-    <legend><strong>Basic Info:</strong></legend>
+  <div class="row">
+    <div class="medium-4 columns fieldset">
+      <legend><strong>Basic Card Info:</strong></legend>
+      <%= f.simple_fields_for :card_infos do |card_info| %>
+        <%= render 'card_info', f: card_info %>
+      <% end -%>
+    </div>
 
-     <%= f.simple_fields_for :card_infos, @card_infos do |card_infos| %>
+    <div class="medium-4 columns fieldset">
+      <legend><strong>Billing Address:</strong></legend>
+      <%= f.simple_fields_for :billing_addresses do |billing_address| %>
+        <%= render 'billing_address', f: billing_address %>
+      <% end -%>
+    </div>
 
-      <div>
-        <%= card_infos.label :card_nickname %>
-        <%= card_infos.text_field :card_nickname %>
-        <%= card_infos.label :email %>
-        <%= card_infos.text_field :email %>
-        <%= card_infos.label :card_type %>
-        <%= card_infos.text_field :card_type %>
-        <%= card_infos.label :name_on_card %>
-        <%= card_infos.text_field :name_on_card %>
-        <%= card_infos.label :card_number %>
-        <%= card_infos.text_field :card_number %>
-        <%= card_infos.label :ccv, "Security Code on Back" %>
-        <%= card_infos.text_field :ccv %>
-        <%= card_infos.label :exp_month, "Expiration Month" %>
-        <%= card_infos.text_field :exp_month %>
-        <%= card_infos.label :exp_year, "Expiration Year" %>
-        <%= card_infos.text_field :exp_year %>
-        <%= card_infos.label :birthdate, "Date of Birth" %>
-        <%= card_infos.input :birthdate %>
-
-      </div>
-    <% end %>
-  </div>
-  <div class="medium-4 columns fieldset">
-    <legend><strong>Billing Address:</strong></legend>
-
-    <%= f.simple_fields_for :billing_addresses, @billing_address do |billing_addresses| %>
-
-      <div>
-        <%= billing_addresses.label :first_name %>
-        <%= billing_addresses.text_field :first_name %>
-        <%= billing_addresses.label :last_name %>
-        <%= billing_addresses.text_field :last_name %>
-        <%= billing_addresses.label :address_1 %>
-        <%= billing_addresses.text_field :address_1 %>
-        <%= billing_addresses.label :address_2 %>
-        <%= billing_addresses.text_field :address_2 %>
-        <%= billing_addresses.label :city %>
-        <%= billing_addresses.text_field :city %>
-        <%= billing_addresses.label :state %>
-        <%= billing_addresses.text_field :state %>
-        <%= billing_addresses.label :zip_code %>
-        <%= billing_addresses.text_field :zip_code %>
-        <%= billing_addresses.label :house_nb %>
-        <%= billing_addresses.text_field :house_nb %>
-        <%= billing_addresses.label :phone %>
-        <%= billing_addresses.text_field :phone %>
-
-      </div>
-    <% end %>
-  </div>
-  <div class="medium-4 columns fieldset">
-    <legend><strong>Shipping Address:</strong></legend>
-
-    <%= f.simple_fields_for :shipping_addresses, @shipping_address do |shipping_addresses| %>
-
-      <div>
-        <%= shipping_addresses.label :first_name %>
-        <%= shipping_addresses.text_field :first_name %>
-        <%= shipping_addresses.label :last_name %>
-        <%= shipping_addresses.text_field :last_name %>
-        <%= shipping_addresses.label :address_1 %>
-        <%= shipping_addresses.text_field :address_1 %>
-        <%= shipping_addresses.label :address_2 %>
-        <%= shipping_addresses.text_field :address_2 %>
-        <%= shipping_addresses.label :city %>
-        <%= shipping_addresses.text_field :city %>
-        <%= shipping_addresses.label :state %>
-        <%= shipping_addresses.text_field :state %>
-        <%= shipping_addresses.label :zip_code %>
-        <%= shipping_addresses.text_field :zip_code %>
-        <%= shipping_addresses.label :house_nb %>
-        <%= shipping_addresses.text_field :house_nb %>
-        <%= shipping_addresses.label :phone %>
-        <%= shipping_addresses.text_field :phone %>
-
-      </div>
-    <% end %>
-  </div>
+    <div class="medium-4 columns fieldset">
+      <legend><strong>Shipping Address:</strong></legend>
+      <%= f.simple_fields_for :shipping_addresses do |shipping_address| %>
+        <%= render 'shipping_address', f: shipping_address %>
+      <% end -%>
+    </div>
   </div>
 
 
