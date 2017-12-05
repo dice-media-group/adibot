@@ -1,18 +1,23 @@
   <div>
-    <%= f.label :card_nickname %>
-    <%= f.text_field :card_nickname %>
-    <%= f.label :card_type %>
-    <%= f.text_field :card_type %>
-    <%= f.label :name_on_card %>
-    <%= f.text_field :name_on_card %>
-    <%= f.label :card_number %>
-    <%= f.text_field :card_number %>
-    <%= f.label :exp_month %>
-    <%= f.text_field :exp_month %>
-    <%= f.label :exp_year %>
-    <%= f.text_field :exp_year %>
-    <%= f.label :ccv %>
-    <%= f.text_field :ccv %>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+      <label>Card Nickname
+        <%= f.text_field :card_nickname,  placeholder: "memorable name", 'aria-describedby' => "exampleHelpText", 'required pattern' =>"text" %>
+        <span class="form-error">
+          Yo, you had better fill this out, it's required.
+        </span>
+      </label>
+
+        <%= f.label :card_type %>
+        <%= f.text_field :card_type %>
+        <%= f.label :name_on_card %>
+        <%= f.text_field :name_on_card %>
+        <%= f.label :card_number %>
+        <%= f.text_field :card_number %>
+        <%= f.label :exp_month %>
+        <%= f.text_field :exp_month %>
+        <%= f.label :exp_year %>
+        <%= f.text_field :exp_year %>
+        <%= f.label :ccv %>
+        <%= f.text_field :ccv %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
 </div>
