@@ -1,19 +1,20 @@
 class CampaignsController < ApplicationController
-    before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
 
   # GET /campaigns
   def index
-    @campaigns = Campaign.all
+    @campaigns = current_user.campaigns.all
   end
 
   # GET /campaigns/1
   def show
+    @site_accounts = @campaign.site_accounts.all
   end
 
   # GET /campaigns/new
   def new
-    @campaign = Campaign.new
+    @campaign = current_user.campaigns.new
   end
 
   # GET /campaigns/1/edit
@@ -22,7 +23,7 @@ class CampaignsController < ApplicationController
 
   # POST /campaigns
   def create
-    @campaign = Campaign.new(campaign_params)
+    @campaign = current_user.campaigns.new(campaign_params)
 
     if @campaign.save
       redirect_to @campaign, notice: 'Campaign was successfully created.'
@@ -49,7 +50,7 @@ class CampaignsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_campaign
-      @campaign = Campaign.find(params[:id])
+      @campaign = current_user.campaigns.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

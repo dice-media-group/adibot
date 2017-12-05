@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203222024) do
+ActiveRecord::Schema.define(version: 20171205134550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20171203222024) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
   create_table "card_infos", force: :cascade do |t|
@@ -124,6 +126,8 @@ ActiveRecord::Schema.define(version: 20171203222024) do
     t.datetime "updated_at", null: false
     t.bigint "merchant_site_id"
     t.string "nickname"
+    t.bigint "campaign_id"
+    t.index ["campaign_id"], name: "index_site_accounts_on_campaign_id"
     t.index ["merchant_site_id"], name: "index_site_accounts_on_merchant_site_id"
   end
 
@@ -163,8 +167,10 @@ ActiveRecord::Schema.define(version: 20171203222024) do
   end
 
   add_foreign_key "billing_addresses", "billing_profiles"
+  add_foreign_key "campaigns", "users"
   add_foreign_key "card_infos", "billing_profiles"
   add_foreign_key "shipping_addresses", "billing_profiles"
+  add_foreign_key "site_accounts", "campaigns"
   add_foreign_key "site_accounts", "merchant_sites"
   add_foreign_key "tasks", "billing_profiles"
   add_foreign_key "tasks", "site_accounts"

@@ -1,11 +1,15 @@
 <%= simple_form_for(@campaign) do |f| %>
   <%= f.error_notification %>
+  <div class="row columns">
+    <%= link_to 'Cancel', campaigns_path, class: "button secondary"  %>       <%= f.submit 'Save', class: "button" %>
 
-  <div class="form-inputs">
+  </div>
+  <div class="row columns">
+   <div class="form-inputs">
     <%= f.input :name %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
   </div>
+
+
 <% end %>
