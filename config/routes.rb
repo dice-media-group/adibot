@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :campaigns
+  get 'merchant_sites/show'
+
+  resources :campaigns do
+    resources :site_accounts
+    resources :merchant_sites
+    resources :tasks
+  end
+
   resources :cart_attempts
   resources :tasks
   devise_for :users

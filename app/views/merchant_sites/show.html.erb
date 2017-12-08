@@ -16,10 +16,18 @@
 		  <%= @campaign.name %>
 		</p>
 		<%= link_to "Add site Account", new_campaign_site_account_path(@campaign) %>
-		<%= render 'site_accounts' %>
+		<ul>
+		<ul>
+			<%= @site_accounts.each do |site_account| %>
+				<li>
+					Site Account id: <%= site_account.id %>
+				</li>
+			<% end%>
+		</ul>
 
 	</div>
 	<div class="medium-2 columns" style="background-color: grey;">
+		&nbsp;
 		<ul>
 			<% @merchant_sites.each do |merchant_site| %>
 				<li><%= merchant_site.name %></li>

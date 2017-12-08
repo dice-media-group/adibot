@@ -1,9 +1,11 @@
 class SiteAccountsController < ApplicationController
+    before_action :authenticate_user!
   before_action :set_site_account, only: [:show, :edit, :update, :destroy]
 
   # GET /site_accounts
   def index
-    @site_accounts = SiteAccount.all
+    @campaign = current_user.campaigns.find(params[:campaign_id])
+    @site_accounts = @campaign.site_accounts.all
   end
 
   # GET /site_accounts/1
@@ -12,7 +14,10 @@ class SiteAccountsController < ApplicationController
 
   # GET /site_accounts/new
   def new
-    @site_account = SiteAccount.new
+    # @site_account = @campaign.site_accounts.build
+    @campaign =  current_user.campaigns.find(params[:campaign_id])
+    @site_account = @campaign.site_accounts.new
+
   end
 
   # GET /site_accounts/1/edit
@@ -21,10 +26,11 @@ class SiteAccountsController < ApplicationController
 
   # POST /site_accounts
   def create
-    @site_account = SiteAccount.new(site_account_params)
+    @campaign =  current_user.campaigns.find(params[:campaign_id])
+    @site_account = @campaign.site_accounts.new(site_account_params)
 
     if @site_account.save
-      redirect_to site_accounts_url, notice: 'Site account was successfully created.'
+      redirect_to campaign_path(@campaign), notice: 'Site account was successfully created.'
     else
       render :new
     end
@@ -48,7 +54,9 @@ class SiteAccountsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_site_account
-      @site_account = SiteAccount.find(params[:id])
+      @campaign = current_user.campaigns.find(params[:campaign_id])
+      # @site_account = @campaign.site_accounts.find(params[:id])
+      @site_account   = current_user.campaigns.find(params[:campaign_id]).site_accounts.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

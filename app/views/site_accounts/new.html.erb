@@ -1,5 +1,27 @@
-<h1>New Site Account</h1>
+<p id="notice"><%= notice %></p>
 
-<%= render 'form', site_account: @site_account %>
+<nav aria-label="You are here:" role="navigation">
+  <ul class="breadcrumbs">
+    <li><%= link_to "Campaigns", campaigns_path %></li>
+    <li class="disabled">Create Campaign <%= @campaign.name %></li>
+    <li>
+      <span class="show-for-sr">Current: </span> Site Settings
+    </li>
+  </ul>
+</nav>
+<div class="row columns">
+	<div class="medium-10 columns">
+		<%= render 'form', site_account: @site_account %>
 
-<%= link_to 'Back', site_accounts_path %>
+	</div>
+	<div class="medium-2 columns" style="background-color: grey;">
+		<ul>
+			<%# @site_accounts.each do |site_account| %>
+				<li><%#= site_account.merchant_site.name %></li>
+			<%# end %>
+		</ul>
+	</div>
+</div>
+
+
+

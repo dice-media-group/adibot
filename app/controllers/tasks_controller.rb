@@ -1,8 +1,12 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
   def index
+  @campaign = current_user.campaigns.find(params[:campaign_id])
+  @task   = current_user.campaigns.find(params[:campaign_id]).tasks
+
     @tasks = Task.all
   end
 
@@ -12,7 +16,8 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
+    @campaign = current_user.campaigns.find(params[:campaign_id])
+    @task = @campaign.tasks.new
   end
 
   # GET /tasks/1/edit
@@ -21,10 +26,11 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = Task.new(task_params)
+    @campaign = current_user.campaigns.find(params[:campaign_id])
+    @task = @campaign.tasks.new(task_params)
 
     if @task.save
-      redirect_to tasks_url, notice: 'Task was successfully created.'
+      redirect_to campaign_tasks_url(params[:campaign_id]), notice: 'Task was successfully created.'
     else
       render :new
     end
@@ -33,7 +39,8 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   def update
     if @task.update(task_params)
-      redirect_to tasks_url, notice: 'Task was successfully updated.'
+      redirect_to campaign_tasks_path(@campaign), notice: 'Campaign task was successfully updated.'
+
     else
       render :edit
     end
@@ -42,13 +49,15 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   def destroy
     @task.destroy
-    redirect_to tasks_url, notice: 'Task was successfully destroyed.'
+    redirect_to campaign_tasks_url(@campaign), notice: 'Task was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = Task.find(params[:id])
+      @campaign = current_user.campaigns.find(params[:campaign_id])
+      @task   = current_user.campaigns.find(params[:campaign_id]).tasks.find(params[:id])
+      # @task = Task.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

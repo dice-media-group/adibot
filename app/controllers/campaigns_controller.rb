@@ -10,6 +10,7 @@ class CampaignsController < ApplicationController
   # GET /campaigns/1
   def show
     @site_accounts = @campaign.site_accounts.all
+    @merchant_sites = @campaign.merchant_sites.group(:id)
   end
 
   # GET /campaigns/new
