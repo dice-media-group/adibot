@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206184152) do
+ActiveRecord::Schema.define(version: 20171209183106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20171206184152) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.integer "order_quantity"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
@@ -88,6 +89,8 @@ ActiveRecord::Schema.define(version: 20171206184152) do
     t.string "base_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "campaign_id"
+    t.index ["campaign_id"], name: "index_merchant_sites_on_campaign_id"
   end
 
   create_table "shipping_addresses", force: :cascade do |t|
@@ -171,6 +174,7 @@ ActiveRecord::Schema.define(version: 20171206184152) do
   add_foreign_key "billing_addresses", "billing_profiles"
   add_foreign_key "campaigns", "users"
   add_foreign_key "card_infos", "billing_profiles"
+  add_foreign_key "merchant_sites", "campaigns"
   add_foreign_key "shipping_addresses", "billing_profiles"
   add_foreign_key "site_accounts", "campaigns"
   add_foreign_key "site_accounts", "merchant_sites"

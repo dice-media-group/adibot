@@ -26,7 +26,7 @@ class SiteAccountsController < ApplicationController
 
   # POST /site_accounts
   def create
-    @campaign =  current_user.campaigns.find(params[:campaign_id])
+    @campaign     = current_user.campaigns.find(params[:campaign_id])
     @site_account = @campaign.site_accounts.new(site_account_params)
 
     if @site_account.save

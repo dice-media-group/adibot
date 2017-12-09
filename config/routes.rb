@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   get 'merchant_sites/show'
 
   resources :campaigns do
-    resources :site_accounts
-    resources :merchant_sites
-    resources :tasks
+    resources :site_accounts, shallow: true
+    resources :merchant_sites, shallow: true
+    resources :tasks, shallow: true
   end
 
   resources :cart_attempts
