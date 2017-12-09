@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171209183106) do
+ActiveRecord::Schema.define(version: 20171209222937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,13 +139,7 @@ ActiveRecord::Schema.define(version: 20171209183106) do
     t.string "status"
     t.string "shoe_size"
     t.bigint "billing_profile_id"
-    t.string "positive_key_word"
-    t.string "negative_key_word"
     t.string "style_no"
-    t.text "early_link"
-    t.string "page_monitor"
-    t.string "notification_text_no"
-    t.string "notification_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "campaign_id"
