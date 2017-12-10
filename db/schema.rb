@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171209230805) do
+ActiveRecord::Schema.define(version: 20171210212308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,15 @@ ActiveRecord::Schema.define(version: 20171209230805) do
     t.index ["campaign_id"], name: "index_merchant_sites_on_campaign_id"
   end
 
+  create_table "proxy_lists", force: :cascade do |t|
+    t.string "name"
+    t.string "provider_name"
+    t.boolean "enabled"
+    t.string "proxy_collection"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shipping_addresses", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -144,9 +153,11 @@ ActiveRecord::Schema.define(version: 20171209230805) do
     t.datetime "updated_at", null: false
     t.bigint "campaign_id"
     t.bigint "merchant_site_id"
+    t.bigint "proxy_list_id"
     t.index ["billing_profile_id"], name: "index_tasks_on_billing_profile_id"
     t.index ["campaign_id"], name: "index_tasks_on_campaign_id"
     t.index ["merchant_site_id"], name: "index_tasks_on_merchant_site_id"
+    t.index ["proxy_list_id"], name: "index_tasks_on_proxy_list_id"
     t.index ["site_account_id"], name: "index_tasks_on_site_account_id"
   end
 
@@ -177,5 +188,6 @@ ActiveRecord::Schema.define(version: 20171209230805) do
   add_foreign_key "tasks", "billing_profiles"
   add_foreign_key "tasks", "campaigns"
   add_foreign_key "tasks", "merchant_sites"
+  add_foreign_key "tasks", "proxy_lists"
   add_foreign_key "tasks", "site_accounts"
 end

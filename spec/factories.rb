@@ -1,4 +1,10 @@
 FactoryBot.define do
+  factory :proxy_list do
+    name "MyString"
+    provider_name "MyString"
+    enabled false
+    proxy_collection "MyString"
+  end
   factory :timekeeper do
     best_time "2017-12-03 14:54:16"
     best_date "2017-12-03"

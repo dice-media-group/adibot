@@ -1,5 +1,5 @@
 <div class="row columns">
-<%= simple_form_for([@campaign, @site_account]) do |f| %>
+<%= simple_form_for([@merchant_site, @site_account]) do |f| %>
   <%= f.error_notification %>
   <%= render 'error_messages', object: f.object %>
 
@@ -20,20 +20,6 @@
         
       </div>
 
-            <div class="medium-3 cell">
-                  <%= f.input :early %>
-            </div>
-
-            <div class="medium-3 cell">
-                  <%= f.input :page_monitor %>
-            </div>
-
-            <div class="medium-3 cell">
-                  <%= f.input :notification_text_no %>
-            </div>
-            <div class="medium-3 cell">
-                  <%= f.input :notification_email %>
-            </div>
 
       </div>
     </div>
@@ -41,7 +27,8 @@
 
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Save',  class: "button expanded"  %>          
+
   </div>
 <% end %>
   

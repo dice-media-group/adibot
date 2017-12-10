@@ -1,10 +1,10 @@
 class BillingProfile < ApplicationRecord
-	# has_many :billing_addresses, inverse_of: :billing_profile, :dependent => :destroy
-	# has_many :shipping_addresses, :dependent => :destroy
 	has_many :card_infos, :dependent => :destroy
 	has_many :billing_addresses, :dependent => :destroy
 	has_many :shipping_addresses, :dependent => :destroy
 
+	has_many :tasks
+	has_many :site_accounts, through: :tasks
     
 # accepts_nested_attributes_for :billing_addresses
 # accepts_nested_attributes_for :shipping_addresses

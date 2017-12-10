@@ -61,6 +61,8 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:site_account_id, :status, :shoe_size, :billing_profile_id, :positive_key_word, :negative_key_word, :style_no, :early_link, :page_monitor, :notification_text_no, :notification_email)
+      params.require(:task).permit(:site_account_id, :status, :shoe_size, :billing_profile_id, :positive_key_word, :negative_key_word, :style_no, :early_link,
+        :page_monitor, :notification_text_no, :notification_email,
+        proxy_lists_attributes: ProxyList.attribute_names.map(&:to_sym).shift)
     end
 end

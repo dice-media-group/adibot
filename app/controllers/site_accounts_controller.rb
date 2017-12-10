@@ -4,8 +4,9 @@ class SiteAccountsController < ApplicationController
 
   # GET /site_accounts
   def index
-    @campaign = current_user.campaigns.find(params[:campaign_id])
-    @site_accounts = @campaign.site_accounts.all
+
+    @merchant_site  = MerchantSite.find(params[:merchant_site_id])
+    @site_accounts = @merchant_site.site_accounts.all
   end
 
   # GET /site_accounts/1
@@ -15,8 +16,8 @@ class SiteAccountsController < ApplicationController
   # GET /site_accounts/new
   def new
     # @site_account = @campaign.site_accounts.build
-    @campaign =  current_user.campaigns.find(params[:campaign_id])
-    @site_account = @campaign.site_accounts.new
+    @merchant_site =  MerchantSite.find(params[:merchant_site_id])
+    @site_account = @merchant_site.site_accounts.new
 
   end
 
@@ -26,11 +27,11 @@ class SiteAccountsController < ApplicationController
 
   # POST /site_accounts
   def create
-    @campaign     = current_user.campaigns.find(params[:campaign_id])
-    @site_account = @campaign.site_accounts.new(site_account_params)
+    @merchant_site  = MerchantSite.find(params[:merchant_site_id])
+    @site_account   = @merchant_site.site_accounts.new(site_account_params)
 
     if @site_account.save
-      redirect_to campaign_path(@campaign), notice: 'Site account was successfully created.'
+      redirect_to merchant_site_site_accounts_path(@merchant_site), notice: 'Site account was successfully created.'
     else
       render :new
     end

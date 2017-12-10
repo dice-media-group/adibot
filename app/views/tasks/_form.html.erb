@@ -1,4 +1,8 @@
 <div class="row columns">
+            <%= link_to "(+) Registered Site Account", new_merchant_site_site_account_path(@task.merchant_site), target: "_blank" %>
+            &nbsp;&nbsp;
+            <%= link_to "(+) Billing and Shipping Profile", new_billing_profile_path, target: "_blank" %>
+
 <%= simple_form_for([@campaign, task]) do |f| %>
 
   <%= f.error_notification %>
@@ -7,34 +11,25 @@
     <fieldset class="fieldset">
       <legend>Site Registration</legend>
       <div class="row columns">
-          <%= f.association :site_account, label_method: :nickname, value_method: :id %>        
+          <%#= f.association :site_account %>        
+          <%= f.association :site_account, as: :radio_buttons, label_method: :nickname, value_method: :id %>        
       </div>
     </fieldset>
     <fieldset class="fieldset">
-      <legend>Shoe size &amp; style</legend>
-
-      <div class="row">
-        <div class="medium-6 columns">
-              <%= f.input :shoe_size %>
-        </div>
-        <div class="medium-6 columns">
-          <%= f.input :style_no %>
-        </div>
+      <legend>Payment &amp; Shipping</legend>
+      <div class="row columns">
+          <%#= f.association :site_account %>        
+          <%= f.association :billing_profile, as: :radio_buttons, label_method: :nickname, value_method: :id %>        
       </div>
     </fieldset>
 
-    <fieldset class="fieldset">
-      <legend>Notification</legend>
-      <%= f.input :notification_text_no %>
-      <%= f.input :notification_email %>
-    </fieldset>
   </div>
   <div class="row">
     <div class="medium-6 columns"></div>
     <div class="medium-6 columns">
       <div class="form-actions row">
         <div class="medium-6 columns">
-          <%= f.button :submit, 'Cancel', :cancel=> campaign_tasks_url(params[:campaign_id]),  class: "button secondary"  %>
+          &nbsp;
         </div>
         <div class="medium-6 columns">
           <%= f.button :submit, 'Save',  class: "button expanded"  %>          
