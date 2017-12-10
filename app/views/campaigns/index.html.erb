@@ -22,11 +22,6 @@
       <tr>
         <td><%= link_to campaign.name, campaign %></td>
         <td>Sites go here
-            <% site_names = campaign.site_accounts.joins(:merchant_site).distinct.pluck(:name) %>
-            Number of site_names: <%= site_names.length%>
-            <%  site_names.each do  |site| %>
-              <p>logo <%= site %><br /></p>
-            <% end -%>
         </td>
         <td>Sizes go here</td>
         <td>tasks go here</td>

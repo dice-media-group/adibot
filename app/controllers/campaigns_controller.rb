@@ -9,7 +9,7 @@ class CampaignsController < ApplicationController
 
   # GET /campaigns/1
   def show
-    @site_accounts = @campaign.site_accounts.all
+    @tasks = @campaign.tasks.all
     @merchant_sites = @campaign.merchant_sites.group(:id)
   end
 
@@ -24,7 +24,7 @@ class CampaignsController < ApplicationController
 
   # POST /campaigns
   def create
-    @campaign = current_user.campaigns.new(campaign_params)
+    @campaign = current_user.campaigns.new(allowed_params)
 
     if @campaign.save
       redirect_to @campaign, notice: 'Campaign was successfully created.'
@@ -35,7 +35,7 @@ class CampaignsController < ApplicationController
 
   # PATCH/PUT /campaigns/1
   def update
-    if @campaign.update(campaign_params)
+    if @campaign.update(allowed_params)
       redirect_to @campaign, notice: 'Campaign was successfully updated.'
     else
       render :edit
@@ -55,7 +55,13 @@ class CampaignsController < ApplicationController
     end
 
     # Only allow a trusted parameter "white list" through.
+
+
+    def allowed_params
+      params.require(:campaign).permit(:name, :order_quantity, merchant_site_ids: [])
+      
+    end
     def campaign_params
-      params.require(:campaign).permit(:name)
+      params.require(:campaign).permit(:name, :order_quantity)
     end
 end

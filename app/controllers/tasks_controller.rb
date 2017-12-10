@@ -39,7 +39,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   def update
     if @task.update(task_params)
-      redirect_to campaign_tasks_path(@campaign), notice: 'Campaign task was successfully updated.'
+      redirect_to task_path(@task), notice: 'Campaign task was successfully updated.'
 
     else
       render :edit
@@ -55,8 +55,7 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @campaign = current_user.campaigns.find(params[:campaign_id])
-      @task   = current_user.campaigns.find(params[:campaign_id]).tasks.find(params[:id])
+      @task   = Task.find(params[:id])
       # @task = Task.find(params[:id])
     end
 

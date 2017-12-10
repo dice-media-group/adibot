@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171209222937) do
+ActiveRecord::Schema.define(version: 20171209230805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,8 +143,10 @@ ActiveRecord::Schema.define(version: 20171209222937) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "campaign_id"
+    t.bigint "merchant_site_id"
     t.index ["billing_profile_id"], name: "index_tasks_on_billing_profile_id"
     t.index ["campaign_id"], name: "index_tasks_on_campaign_id"
+    t.index ["merchant_site_id"], name: "index_tasks_on_merchant_site_id"
     t.index ["site_account_id"], name: "index_tasks_on_site_account_id"
   end
 
@@ -174,5 +176,6 @@ ActiveRecord::Schema.define(version: 20171209222937) do
   add_foreign_key "site_accounts", "merchant_sites"
   add_foreign_key "tasks", "billing_profiles"
   add_foreign_key "tasks", "campaigns"
+  add_foreign_key "tasks", "merchant_sites"
   add_foreign_key "tasks", "site_accounts"
 end

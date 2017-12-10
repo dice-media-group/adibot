@@ -6,15 +6,21 @@
   </div>
   <div class="row columns">
 	   <div class="form-inputs">
-	    <%= f.input :name %>
-	    <%= f.input :order_quantity, label: "Number of Orders" %>
-	    <fieldset class="fieldset">
-  			<legend>Check these out</legend>
-	    	<%= f.association :merchant_sites,   as: :check_boxes%>
-	    </fieldset>
+		    <%= f.input :name %>
+		    <%= f.input :order_quantity, label: "Number of Orders" %>
+		    <fieldset class="fieldset">
+	  			<legend>Check these out</legend>
+		    	<%= f.association :merchant_sites, 
+                     as: :check_boxes, 
+                     label_method: :name, 
+                     value_method: :id,
+                     label: 'Merchant Sites' %>
+		    </fieldset>
 	    
-  </div>
+  		</div>
 
   </div>
+
+
 
 <% end %>
