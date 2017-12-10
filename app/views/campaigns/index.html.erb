@@ -21,7 +21,12 @@
     <% @campaigns.each do |campaign| %>
       <tr>
         <td><%= link_to campaign.name, campaign %></td>
-        <td>Sites go here
+        <td>
+          <ul>
+            <%campaign.merchant_sites.each do |site| %>
+              <li><%= site.name %></li>
+            <% end %>
+          </ul>
         </td>
         <td>Sizes go here</td>
         <td>tasks go here</td>

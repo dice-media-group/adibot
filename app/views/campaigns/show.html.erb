@@ -15,80 +15,46 @@
 		  <strong>Name:</strong>
 		  <%= @campaign.name %>
 		</p>
-		<%= link_to "Add site Account", new_campaign_site_account_path(@campaign) %>
-		<%= render 'site_accounts' %>
-
-	</div>
-	<div class="medium-2 columns" style="background-color: grey;">
-		<ul>
-			<% @campaign.merchant_sites.each do |site| %>
-				<li><%= "#{site.name}" %></li>
-			<% end %>
-		</ul>
-	</div>
-</div>
-<div class="row collapse">
-  <div class="medium-9 columns">
     <div class="tabs-content" data-tabs-content="example-tabs">
       <div class="tabs-panel is-active" id="panel1v">
-        <p>One</p>
-        <p>Check me out! I'm a super cool Tab panel with text content!</p>
+        <p>Click on the merchant site on the right to progress forward.</p>
       </div>
 
       <% @campaign.tasks.each do |task| %>
         <div class="tabs-panel" id='<%= "panel#{task.id}t" %>'>
-	        <p>Task merchant_site <%= "#{task.merchant_site.name}"%></p>
-	        <%= simple_form_for(task, url: task_path(task), html: { method: :put }) do |f| %>
-			
-			  <div class="form-inputs">
-			    <%= f.input :style_no %>
-			    <%= f.input :shoe_size %>
-			  </div>
-
-			  <div class="form-actions">
-			    <%= f.button :submit, "Update task" %>
-			  </div>
-			<% end %>
-
-	        <img class="thumbnail" src="https://foundation.zurb.com/sites/docs/assets/img/generic/rectangle-2.jpg">
-      	</div>
+          <p>Task merchant_site <%= "#{task.merchant_site.name}"%></p>
+          <%= simple_form_for(task, url: task_path(task), html: { method: :put }) do |f| %>
       
-	  <% end %>
+          <div class="form-inputs">
+            <%= f.input :style_no %>
+            <%= f.input :shoe_size %>
+          </div>
 
-      <div class="tabs-panel" id="panel2v">
-        <p>Two</p>
-        <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
+          <div class="form-actions">
+            <%= f.button :submit, "Update task", class: "button expanded" %>
+          </div>
+        <% end %>
       </div>
-      <div class="tabs-panel" id="panel3v">
-        <p>Three</p>
-        <p>Check me out! I'm a super cool Tab panel with text content!</p>
-      </div>
-      <div class="tabs-panel" id="panel4v">
-        <p>Four</p>
-        <img class="thumbnail" src="assets/img/generic/rectangle-2.jpg">
-      </div>
-      <div class="tabs-panel" id="panel5v">
-        <p>Five</p>
-        <p>Check me out! I'm a super cool Tab panel with text content!</p>
-      </div>
-      <div class="tabs-panel" id="panel6v">
-        <p>Six</p>
-        <img class="thumbnail" src="assets/img/generic/rectangle-8.jpg">
-      </div>
+      
+    <% end %>
+
     </div>
-  </div>
-    <div class="medium-3 columns">
+
+	</div>
+	<div class="medium-2 columns">
     <ul class="vertical tabs" data-tabs id="example-tabs">
       <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true">Tab 1</a></li>
       <% @campaign.tasks.each do |task| %>
         <li class="tabs-title"><%= link_to "#{task.merchant_site.name}", "\#panel#{task.id}t" %></li>
-	  <% end %>
+    <% end %>
 
-      <li class="tabs-title"><a href="#panel3v">Tab 3</a></li>
-      <li class="tabs-title"><a href="#panel4v">Tab 4</a></li>
-      <li class="tabs-title"><a href="#panel5v">Tab 5</a></li>
-      <li class="tabs-title"><a href="#panel6v">Tab 6</a></li>
     </ul>
+	</div>
+</div>
+<div class="row collapse">
+  <div class="medium-9 columns">
+  </div>
+    <div class="medium-3 columns">
   </div>
 
 </div>
