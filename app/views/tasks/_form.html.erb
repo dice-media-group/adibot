@@ -1,42 +1,47 @@
 <div class="row columns">
-            <%= link_to "(+) Registered Site Account", new_merchant_site_site_account_path(@task.merchant_site), target: "_blank" %>
-            &nbsp;&nbsp;
-            <%= link_to "(+) Billing and Shipping Profile", new_billing_profile_path, target: "_blank" %>
 
 <%= simple_form_for([@campaign, task]) do |f| %>
+  <div class="row columns">
+    <%= link_to 'Cancel', billing_profiles_path, class: "button secondary"  %>       <%= f.submit 'Save Task', class: "button" %>
+  </div>
 
-  <%= f.error_notification %>
+  <%= render 'shared/errors', object: task %>
 
   <div class="form-inputs">
-    <fieldset class="fieldset">
-      <legend>Site Registration</legend>
-      <div class="row columns">
-          <%#= f.association :site_account %>        
-          <%= f.association :site_account, as: :radio_buttons, label_method: :nickname, value_method: :id %>        
-      </div>
-    </fieldset>
-    <fieldset class="fieldset">
-      <legend>Payment &amp; Shipping</legend>
-      <div class="row columns">
-          <%#= f.association :site_account %>        
-          <%= f.association :billing_profile, as: :radio_buttons, label_method: :nickname, value_method: :id %>        
-      </div>
-    </fieldset>
+      <div class="row">
+        <div class="medium-4 columns fieldset">
 
-  </div>
-  <div class="row">
-    <div class="medium-6 columns"></div>
-    <div class="medium-6 columns">
-      <div class="form-actions row">
-        <div class="medium-6 columns">
-          &nbsp;
+          <%= link_to "(+) Registered Site Account", new_merchant_site_site_account_path(@task.merchant_site), target: "_blank" %>
+          <fieldset class="fieldset">
+            <legend>Site Registration</legend>
+            <div class="row columns">
+                <%#= f.association :site_account %>        
+                <%= f.association :site_account, as: :radio_buttons, label_method: :nickname, value_method: :id %>        
+            </div>
+          </fieldset>
+
         </div>
-        <div class="medium-6 columns">
-          <%= f.button :submit, 'Save',  class: "button expanded"  %>          
+        
+        <div class="medium-4 columns fieldset">
+          <%= link_to "(+) Billing and Shipping Profile", new_billing_profile_path, target: "_blank" %>
+          <fieldset class="fieldset">
+            <legend>Payment &amp; Shipping</legend>
+            <div class="row columns">
+                <%#= f.association :site_account %>        
+                <%= f.association :billing_profile, as: :radio_buttons, label_method: :nickname, value_method: :id %>        
+            </div>
+          </fieldset>
         </div>
-      </div>      
-    </div>
-    
+
+        <div class="medium-4 columns fieldset">
+          <%= link_to "(+) Proxy List", new_proxy_list_path, target: "_blank" %>
+          <fieldset class="fieldset">
+          <legend>Select Proxy List </legend>
+          proxy list input here
+            <%= f.association :proxy_list, as: :radio_buttons, label_method: :name, value_method: :id %> 
+        </fieldset>
+
+        </div>        
   </div>
 <% end %>
   

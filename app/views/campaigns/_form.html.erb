@@ -1,5 +1,6 @@
 <%= simple_form_for(@campaign) do |f| %>
   <%= f.error_notification %>
+  <%= render 'shared/errors', object: @campaign %>
   <div class="row columns">
     <%= link_to 'Cancel', campaigns_path, class: "button secondary"  %>       <%= f.submit 'Save', class: "button" %>
 

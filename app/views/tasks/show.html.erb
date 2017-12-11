@@ -4,8 +4,10 @@
   <strong>Style no:</strong>
   <%= @task.style_no %>
 </p>
-
-<p>
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<% if @task.site_account_id.to_i < 1 %>
+<%= link_to "(+) Billing Profile, Shoe Site Account, or Proxy List", edit_task_path, class: "button" %>	
+<% else %>
+<%= link_to "Change Billing Profile, Shoe Site Account, or Proxy List", edit_task_path, class: "button secondary" %>
+<%= link_to "Dashboard", campaigns_path, class: "button " %>
+	
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171210212308) do
+ActiveRecord::Schema.define(version: 20171210221044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,8 @@ ActiveRecord::Schema.define(version: 20171210212308) do
     t.string "proxy_collection"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "merchant_site_id"
+    t.index ["merchant_site_id"], name: "index_proxy_lists_on_merchant_site_id"
   end
 
   create_table "shipping_addresses", force: :cascade do |t|
@@ -182,6 +184,7 @@ ActiveRecord::Schema.define(version: 20171210212308) do
   add_foreign_key "campaigns", "users"
   add_foreign_key "card_infos", "billing_profiles"
   add_foreign_key "merchant_sites", "campaigns"
+  add_foreign_key "proxy_lists", "merchant_sites"
   add_foreign_key "shipping_addresses", "billing_profiles"
   add_foreign_key "site_accounts", "campaigns"
   add_foreign_key "site_accounts", "merchant_sites"

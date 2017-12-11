@@ -24,12 +24,21 @@
         <td>
           <ul>
             <%campaign.merchant_sites.each do |site| %>
-              <li><%= site.name %></li>
+              <li>
+                <%= site.name %>
+                <%= render "campaign_task_button"%>
+              </li>
             <% end %>
           </ul>
         </td>
-        <td>Sizes go here</td>
-        <td>tasks go here</td>
+        <td>
+          <% campaign.tasks.each do |task| %>
+            <%= task.shoe_size %><br />
+          <% end -%>
+        </td>
+        <td>
+          <%= campaign.order_quantity %>
+        </td>
         <td>to cop goes here</td>
         <td>results</td>
         <td>
