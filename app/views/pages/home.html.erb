@@ -1,8 +1,23 @@
+<div class="row columns">
+	<p style="font-size: 3.6em;">&nbsp;</p>
+</div>
+
 <div class="row">
 	
 </div>
 <% if user_signed_in? %>
 	Welcome. Let's <%= link_to "Let's shop!", tasks_path %>
 <% else %>
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/JNua1lFDuDI" frameborder="0" allowfullscreen></iframe>
+<div class="row">
+	<div class="columns medium-4">
+		<p style="font-size: 3.6em;">&nbsp;</p>		
+	</div>
+	<div class="columns medium-4">
+		<%= link_to "Start", new_campaign_path, class: "button large expanded" %>	
+	</div>
+
+	<div class="columns medium-4">
+		<p style="font-size: 3.6em;">&nbsp;</p>		
+	</div>
+</div>
 <% end -%>
