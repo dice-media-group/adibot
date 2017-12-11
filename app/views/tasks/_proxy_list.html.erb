@@ -1,0 +1,15 @@
+      <div>
+      <label>Name
+        <%= f.text_field :name,  placeholder: "proxy name", 'aria-describedby' => "exampleHelpText", 'required pattern' =>"text" %>
+        <span class="form-error">
+          Yo, you had better fill this out, it's required.
+        </span>
+      </label>
+        <%= f.label :provider_name %>
+        <%= f.text_field :provider_name %>
+        <%= f.label :enabled %>
+        <%= f.text_field :enabled %>
+        <%= f.label :proxy_collection %>
+        <%= f.text_area :proxy_collection %>
+
+      </div>

@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tasks <%= link_to '(+)', new_campaign_task_path(@campaign) %></h1>
+<em>Accordian with form to replace table https://foundation.zurb.com/sites/docs/accordion.html#deeplink1</em>
+<table>
+  <thead>
+    <tr>
+      <th>Site account</th>
+      <th>Status</th>
+      <th>Shoe size</th>
+      <th>Style #</th>
+      <th>Billing profile</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= link_to task.site_account.nickname, edit_task_path(task) %></td>
+        <td><%= task.status %></td>
+        <td><%= task.shoe_size %></td>
+        <td><%= task.style_no %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<ul class="accordion" data-accordion>
+    <% @tasks.each_with_index do |task, index| %>
+  <li class="accordion-item" data-accordion-item>
+    <!-- Accordion tab title -->
+    <a href="#" class="accordion-title">
+      <%= "#{task.site_account.merchant_site.name} 
+        Size: #{task.shoe_size} 
+        (#{task.status}) index: #{index}" 
+        %></a>
+
+    <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+    <div class="accordion-content" data-tab-content>
+      <div class="row columns">
+      <div class="medium-8 columns">
+        <%= render 'form', task: task %>
+        
+      </div>
+      <div class="medium-4 columns">
+        <%= link_to 'Destroy', campaign_task_path(@campaign, task), method: :delete, data: { confirm: 'Are you sure?' }, class: "alert button" %>
+        <%#= link_to("new Delete",post_comment_path(@post, f),method: :delete) %> 
+
+        <h5>Task Log</h5>
+        <p>Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati, commodi rem, dolorem, modi ratione distinctio praesentium cupiditate, nostrum harum omnis consequatur. Debitis sunt est quia facere odio, possimus harum.</p>
+      </div>        
+      </div>
+    </div>
+  </li>
+  <!-- ... -->
+  <% end -%>
+</ul>
+<div class="row columns">&nbsp;</div>

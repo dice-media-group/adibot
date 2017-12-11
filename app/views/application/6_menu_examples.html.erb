@@ -1,0 +1,164 @@
+6_menu_examples.html.erb
+<article class="main">
+  <div class="row">
+    <h1>Foundation 6 Menu Examples<h1>
+      <h3 class="subheader">Showcasing how to use the revised menus</h3>
+      <p>Foundation 6 added an optional library to allow developers to take advantage of flexible animations and transitions for their designs. This example will feature a few to show you what's possible.</p>
+      <p><a href="https://foundation.zurb.com/sites/docs/menu.html" target="_blank" title="Foundation 6 Menu Docs">Take a look at the docs here</a> for additional information and settings.</p>
+      
+      <h3>Basic Menu</h3>
+      <p>The basic menu is a standard horizontal menu with default styles for the menu, li and a elements.</p>
+      <ul class="menu">
+        <li><a href="#">Monday</a></li>
+        <li><a href="#">Tuesday</a></li>
+        <li><a href="#">Wednesday</a></li>
+        <li><a href="#">Thursday</a></li>
+        <li><a href="#">Friday</a></li>
+      </ul>
+      <h3>Vertical Menu</h3>
+      <p>By adding the  <code>.vertical</code> class to the <code>ul</code> element you can make this a vertical menu (good for sidebars).</p>
+       <ul class="menu vertical">
+         <li><a href="#">Accounting</a></li> 
+         <li><a href="#">I.T</a></li> 
+         <li><a href="#">Law</a></li> 
+         <li><a href="#">Medicine</a></li> 
+      </ul>
+      
+      <h3>Nested Menu</h3>
+      <p>You can nest your menu inside another menu with the addition of the <code>nested</code> class. It adds an offset so you can easily see child elements.</p>
+      <ul class="menu vertical">
+        <li><a href="#">Course One</a>
+          <ul class="menu vertical nested">
+            <li><a href="#">Course One - One</a></li>
+            <li><a href="#">Course One - Two</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Course Two</a></li>
+      </ul>
+      <p>This really only makes sense when you are using vertical menus (else you get a strange padded-out horizontal layout).</p>
+      
+      <h3>Breadcrumbs</h3>
+      <p>Technically not an actual menu, but still pretty useful. You need to add the <code>breadcrumb</code> class to a <code>ul</code> and the framework will take care of the rest.</p>
+      
+      <p>You can set the current item to be disabled by adding the <code>disabled</code> class to it and not using an <code>a</code> element</p>
+      
+      <a class="button" href="https://foundation.zurb.com/sites/docs/breadcrumbs.html" target="_blank">Read the breadcrumb documentation</a>
+      <ul class="breadcrumbs">
+        <li><a href="#">Computer Hardware</a></li>
+        <li><a href="#">Processors</a></li>
+        <li><a href="#">Intel</a></li>
+        <li class="disabled">Core i7</li>
+      </ul>
+      
+      <h3>Icon Menus</h3>
+      <p>You can add icons to your menu to create a social media menu or action bar. This is done by adding your icon between the <code>a</code> tag before the text for each menu item.</p> 
+      <ul class="menu">
+        <li><a href="#"><i class="fi-shopping-cart"></i><span>One</span></a></li>
+        <li><a href="#"><i class="fi-results"></i> <span>Two</span></a></li>
+        <li><a href="#"><i class="fi-power"></i> <span>Three</span></a></li>
+        <li><a href="#"><i class="fi-magnifying-glass"></i> <span>Four</span></a></li>
+      </ul>
+      
+      <h3>Dropdown Menu</h3>
+      <p>The dropdown menu works like a traditional menu but supported child elements that are shown on hover. You specifty this menu to be a dropdown by adding the data-attribute <code>data-dropdown-menu</code> to the menu <code>ul</code></p>
+      
+      <p><a href="https://foundation.zurb.com/sites/docs/dropdown-menu.html" class="button">Read the dropdown documentation</a></p>
+      
+      <ul class="menu dropdown" data-dropdown-menu>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a>
+          <ul class="menu">
+            <li><a href="#">Our Values</a></li>
+            <li><a href="#">Our ideals</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Services</a>
+          <ul class="menu">
+            <li><a href="#">Consultancy</a></li>
+            <li><a href="#">Accounting</a></li>
+            <li><a href="#">Dynamics</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      
+      <h3>Drilldown Menu</h3>
+      <p>This menu is best used in vertical menus (and on smaller screen sizes). It displays your menu items normally, but anything with a sub-menu will have a right facing arrow. Clicking on this arrows will push the menu to the left and bring to focus the new sub-menu.</p>
+      
+      <p>These menus all have a back button, letting you move forward and backwards through deep menus without using any more physical space.</p>
+      
+      <p><a href="https://foundation.zurb.com/sites/docs/responsive-navigation.html#" class="button">Read the drilldown documentation</a></p>
+      
+      <ul class="menu vertical" data-drilldown>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Summer Classes</a>
+          <ul class="menu vertical">
+            <li><a href="#">Chemisty</a></li>
+            <li><a href="#">Physics</a>
+             <ul class="menu vertical">
+                <li><a href="#">Introduction to Physics </a></li>
+             </ul>
+            </li>
+            <li><a href="#">Computing</a>
+              <ul class="menu vertical">
+                <li><a href="#">Programming Fundamentals</a></li>
+                <li><a href="#">Introduction to Networking</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li> 
+        <li><a href="#">Winter Classes</a>
+         <ul class="menu vertical">
+           <li><a href="#">Chemisty</a>
+           <ul class="menu vertical">
+             <li><a href="#">How things are made - an introduction</a></li>
+             <li><a href="#">Advanced Explosions</a></li>
+           </ul>
+        </li>
+        <li><a href="#">Physics</a>
+          <ul class="menu vertical">
+            <li><a href="#">Advanced Physics </a></li>
+          </ul>
+        </li>
+        <li><a href="#">Computing</a>
+          <ul class="menu vertical">
+            <li><a href="#">Networking Core Concepts</a></li>
+            <li><a href="#">Software Development</a></li>
+          </ul>
+        </li>
+           
+          </ul>
+        </li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      
+      <h3>Top Menu</h3>
+      <p>The top menu has also been adjusted in Foundation 6. You can still use it like you did before. You can supply a 'top-bar-left' class and a 'top-bar-right' class to create two distinct areas</p>
+      
+      <p>In addition, you can also use the 'title-bar' functionaliy from the <a hhref="https://foundation.zurb.com/sites/docs/responsive-navigation.html#responsive-toggle">'responsive toggle'</a> component. This will let you show a toggle menu only on small devices and when connected to your menu, it will show or hide it.</p>
+      
+      <div class="title-bar" data-responsive-toggle="top-menu">
+        <button class="menu-icon" type="button" data-toggle></button>
+        <div class="title-bar-title">Menu</div>
+      </div>
+      <div class="top-bar" id="top-menu">
+        <div class="top-bar-left">
+          <ul class="dropdown vertical medium-horizontal menu">
+            <li><a href="#">Monday</a></li>
+            <li><a href="#">Tuesday</a></li>
+            <li><a href="#">Wednesday</a></li>
+            <li><a href="#">Thursday</a></li>
+            <li><a href="#">Friday</a></li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="dropdown vertical medium-horizontal menu">
+            <li><a href="#">january</a></li>
+            <li><a href="#">February</a></li>
+            <li><a href="#">March</a></li>
+            <li><input type="search" placeholder="Search"></li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</article>

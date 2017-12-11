@@ -1,0 +1,44 @@
+<%= simple_form_for(@billing_profile, html: {novalidate: true},  data: {abide: true}) do |f| %>
+  <%= render 'shared/errors', object: @billing_profile %>
+  <div data-abide-error class="alert callout" style="display: none;">
+    <p><i class="fi-alert"></i> There are some errors in your form.</p>
+  </div>
+  <div class="row columns">
+    <%= link_to 'Cancel', billing_profiles_path, class: "button secondary"  %>       <%= f.submit 'Save Billing', class: "button" %>
+
+  </div>
+
+  <div class="row columns">
+      <label>Nickname
+        <%= f.text_field :nickname,  placeholder: "memorable name", 'aria-describedby' => "exampleHelpText", 'required pattern' =>"text" %>
+        <span class="form-error">
+          Yo, you had better fill this out, it's required.
+        </span>
+      </label>
+      <p class="help-text" id="exampleHelpText">Here's how you use this input field!</p>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns fieldset">
+      <legend><strong>Basic Card Info:</strong></legend>
+      <%= f.simple_fields_for :card_infos do |card_info| %>
+        <%= render 'card_info', f: card_info %>
+      <% end -%>
+    </div>
+
+    <div class="medium-4 columns fieldset">
+      <legend><strong>Billing Address:</strong></legend>
+      <%= f.simple_fields_for :billing_addresses do |billing_address| %>
+        <%= render 'billing_address', f: billing_address %>
+      <% end -%>
+    </div>
+
+    <div class="medium-4 columns fieldset">
+      <legend><strong>Shipping Address:</strong></legend>
+      <%= f.simple_fields_for :shipping_addresses do |shipping_address| %>
+        <%= render 'shipping_address', f: shipping_address %>
+      <% end -%>
+    </div>
+  </div>
+
+
+  <% end -%>

@@ -1,0 +1,48 @@
+<div class="row columns">
+
+<%= simple_form_for([@campaign, task]) do |f| %>
+  <div class="row columns">
+    <%= link_to 'Cancel', billing_profiles_path, class: "button secondary"  %>       <%= f.submit 'Save Task', class: "button" %>
+  </div>
+
+  <%= render 'shared/errors', object: task %>
+
+  <div class="form-inputs">
+      <div class="row">
+        <div class="medium-4 columns fieldset">
+
+          <%= link_to "(+) Registered Site Account", new_merchant_site_site_account_path(@task.merchant_site), target: "_blank" %>
+          <fieldset class="fieldset">
+            <legend>Site Registration</legend>
+            <div class="row columns">
+                <%#= f.association :site_account %>        
+                <%= f.association :site_account, as: :radio_buttons, label_method: :nickname, value_method: :id %>        
+            </div>
+          </fieldset>
+
+        </div>
+        
+        <div class="medium-4 columns fieldset">
+          <%= link_to "(+) Billing and Shipping Profile", new_billing_profile_path, target: "_blank" %>
+          <fieldset class="fieldset">
+            <legend>Payment &amp; Shipping</legend>
+            <div class="row columns">
+                <%#= f.association :site_account %>        
+                <%= f.association :billing_profile, as: :radio_buttons, label_method: :nickname, value_method: :id %>        
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="medium-4 columns fieldset">
+          <%= link_to "(+) Proxy List", new_proxy_list_path, target: "_blank" %>
+          <fieldset class="fieldset">
+          <legend>Select Proxy List </legend>
+          proxy list input here
+            <%= f.association :proxy_list, as: :radio_buttons, label_method: :name, value_method: :id %> 
+        </fieldset>
+
+        </div>        
+  </div>
+<% end %>
+  
+</div>

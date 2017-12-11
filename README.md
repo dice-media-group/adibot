@@ -1,4 +1,4 @@
-# Adibot
+# Adibot with Poltergeist
 
 ## Getting Started
 

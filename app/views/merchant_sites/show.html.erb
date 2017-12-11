@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<nav aria-label="You are here:" role="navigation">
+  <ul class="breadcrumbs">
+    <li><%= link_to "Campaigns", campaigns_path %></li>
+    <li class="disabled">Create Campaign</li>
+    <li>
+      <span class="show-for-sr">Current: </span> Site Settings
+    </li>
+  </ul>
+</nav>
+<div class="row columns">
+	<div class="medium-10 columns">
+		<p>
+		  <strong>Name:</strong>
+		  <%= @campaign.name %>
+		</p>
+		<%= link_to "Add site Account", new_campaign_site_account_path(@campaign) %>
+		<ul>
+		<ul>
+			<%= @site_accounts.each do |site_account| %>
+				<li>
+					Site Account id: <%= site_account.id %>
+				</li>
+			<% end%>
+		</ul>
+
+	</div>
+	<div class="medium-2 columns" style="background-color: grey;">
+		&nbsp;
+		<ul>
+			<% @merchant_sites.each do |merchant_site| %>
+				<li><%= merchant_site.name %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+

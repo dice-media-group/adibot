@@ -1,0 +1,55 @@
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Adibot</li>
+            <% if user_signed_in? %>
+
+      <li>
+      	<%= link_to 'Configure', page_path('configure') %>
+      </li>
+      <li>
+      	<%= link_to 'Added Shoes', page_path('added_shoes') %>
+      </li>
+      <li>
+      	<%= link_to 'Tools', page_path('tools') %>
+      </li>
+      <li>
+      	<%= link_to 'Manuals', page_path('manuals') %>
+      </li>
+      <li>
+      	<%= link_to 'YZY Setup', page_path('yzy_setup') %>
+      </li>
+      <li>
+      	<%= link_to 'Supreme Setup', page_path('supreme_setup') %>
+      </li>
+      <li>
+      	<%= link_to 'Help', page_path('help') %>
+      </li>
+      <% end -%>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <% if user_signed_in? %>
+      <li>
+        <%= link_to current_user.email, edit_user_registration_path, :class => 'navbar-link' %>
+      </li>
+      <li>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>        
+
+      </li>
+
+<% else %>
+      <li>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+</li>
+<li>
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        
+      </li>
+<% end %>
+<!--       <li><input type="search" placeholder="Search"></li>
+      <li><button type="button" class="button">Search</button></li>
+ -->    </ul>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Card Infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Card nickname</th>
+      <th>Card type</th>
+      <th>Name on card</th>
+      <th>Card number</th>
+      <th>Exp month</th>
+      <th>Exp year</th>
+      <th>Ccv</th>
+      <th>Email</th>
+      <th>Birthday</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @card_infos.each do |card_info| %>
+      <tr>
+        <td><%= card_info.card_nickname %></td>
+        <td><%= card_info.card_type %></td>
+        <td><%= card_info.name_on_card %></td>
+        <td><%= card_info.card_number %></td>
+        <td><%= card_info.exp_month %></td>
+        <td><%= card_info.exp_year %></td>
+        <td><%= card_info.ccv %></td>
+        <td><%= card_info.email %></td>
+        <td><%= card_info.birthday %></td>
+        <td><%= link_to 'Show', card_info %></td>
+        <td><%= link_to 'Edit', edit_card_info_path(card_info) %></td>
+        <td><%= link_to 'Destroy', card_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Card Info', new_card_info_path %>

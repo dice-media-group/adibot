@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @proxy_list.name %>
+</p>
+
+<p>
+  <strong>Provider name:</strong>
+  <%= @proxy_list.provider_name %>
+</p>
+
+<p>
+  <strong>Enabled:</strong>
+  <%= @proxy_list.enabled %>
+</p>
+
+<p>
+  <strong>Proxy collection:</strong>
+  <%= @proxy_list.proxy_collection %>
+</p>
+
+<%= link_to 'Edit', edit_proxy_list_path(@proxy_list) %> |
+<%= link_to 'Back', proxy_lists_path %>

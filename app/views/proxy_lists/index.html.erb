@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Proxy Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Provider name</th>
+      <th>Enabled</th>
+      <th>Proxy collection</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proxy_lists.each do |proxy_list| %>
+      <tr>
+        <td><%= proxy_list.name %></td>
+        <td><%= proxy_list.provider_name %></td>
+        <td><%= proxy_list.enabled %></td>
+        <td><%= proxy_list.proxy_collection %></td>
+        <td><%= link_to 'Show', proxy_list %></td>
+        <td><%= link_to 'Edit', edit_proxy_list_path(proxy_list) %></td>
+        <td><%= link_to 'Destroy', proxy_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Proxy List', new_proxy_list_path %>

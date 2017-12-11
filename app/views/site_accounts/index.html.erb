@@ -1,0 +1,35 @@
+<% if notice %>
+<p id="notice" class="callout primary"><%= notice %></p>  
+<% end %>
+
+<h1>Site Accounts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nickname</th>
+      <th>Merch Site</th>
+      <th>Email</th>
+      <th>Style no</th>
+      <th>Size</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @site_accounts.each do |site_account| %>
+      <tr>
+        <td><%= link_to site_account.nickname, edit_site_account_path(site_account) %></td>
+        <td><%= site_account.merchant_site.name %></td>
+        <td><%= site_account.email %></td>
+        <td><%= site_account.style_no %></td>
+        <td><%= site_account.size %></td>
+        <td><%= link_to 'Destroy', site_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Site Account', new_merchant_site_site_account_path(params[:merchant_site_id]) %>

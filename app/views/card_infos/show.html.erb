@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Card nickname:</strong>
+  <%= @card_info.card_nickname %>
+</p>
+
+<p>
+  <strong>Card type:</strong>
+  <%= @card_info.card_type %>
+</p>
+
+<p>
+  <strong>Name on card:</strong>
+  <%= @card_info.name_on_card %>
+</p>
+
+<p>
+  <strong>Card number:</strong>
+  <%= @card_info.card_number %>
+</p>
+
+<p>
+  <strong>Exp month:</strong>
+  <%= @card_info.exp_month %>
+</p>
+
+<p>
+  <strong>Exp year:</strong>
+  <%= @card_info.exp_year %>
+</p>
+
+<p>
+  <strong>Ccv:</strong>
+  <%= @card_info.ccv %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @card_info.email %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @card_info.birthday %>
+</p>
+
+<%= link_to 'Edit', edit_card_info_path(@card_info) %> |
+<%= link_to 'Back', card_infos_path %>

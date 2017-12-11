@@ -10,5 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
+//= require foundation
+//= require foundation_layout
 //= require_tree .
+
+$(function(){ $(document).foundation(); });

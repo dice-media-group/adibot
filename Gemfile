@@ -39,7 +39,8 @@ group :development, :test do
   gem "bullet"
   gem "bundler-audit", ">= 0.5.0", require: false
   gem "dotenv-rails"
-  gem "factory_girl_rails"
+  # gem "factory_girl_rails" deprecated
+  gem "factory_bot_rails"
   gem "pry-byebug"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.6"
@@ -64,3 +65,20 @@ gem 'high_voltage'
 gem 'bourbon', '~> 5.0.0.beta.8'
 gem 'neat', '~> 2.1'
 gem 'refills', group: [:development, :test]
+
+## app-specific gems
+# connect with remote sites and proxies
+gem 'poltergeist', '~> 1.16' #full web stack headless browser
+
+# backend
+gem 'rails_admin', '~> 1.2'
+gem 'erubis', '~> 2.7' # support rails_admin
+gem 'rails_admin_import', '~> 2.0' # easily import csv and excel
+
+# frontend
+gem 'foundation-rails', '~> 6.4', '>= 6.4.1.2'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+
+# authentication
+gem 'devise', '~> 4.3'
+gem 'devise-foundation-views', '~> 0.1.1'

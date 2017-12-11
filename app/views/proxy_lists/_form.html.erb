@@ -1,0 +1,16 @@
+<%= simple_form_for(@proxy_list) do |f| %>
+  <%= f.error_notification %>
+  <div class="row columns">
+      <%= f.submit 'Save', class: "button" %>
+  </div>
+
+  <%= render 'shared/errors', object: proxy_list %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :provider_name %>
+    <%= f.input :enabled %>
+    <%= f.input :proxy_collection %>
+  </div>
+
+<% end %>
