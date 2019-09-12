@@ -80,5 +80,5 @@ gem 'foundation-rails', '~> 6.4', '>= 6.4.1.2'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 
 # authentication
-gem 'devise', '~> 4.3'
+gem 'devise', '~> 4.7'
 gem 'devise-foundation-views', '~> 0.1.1'
