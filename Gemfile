@@ -71,7 +71,7 @@ gem 'refills', group: [:development, :test]
 gem 'poltergeist', '~> 1.16' #full web stack headless browser
 
 # backend
-gem 'rails_admin', '~> 1.2'
+gem 'rails_admin', '~> 1.4'
 gem 'erubis', '~> 2.7' # support rails_admin
 gem 'rails_admin_import', '~> 2.0' # easily import csv and excel
 
